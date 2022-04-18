@@ -7,7 +7,11 @@ const PUBLIC_FILE = /\.([a-zA-Z]+$)/;
 export function middleware(request: NextRequest) {
   const { pathname, search, locale } = request.nextUrl;
 
-  if (pathname.includes('/api/') || pathname.includes('/fonts/')) {
+  if (
+    pathname.includes('/api/') ||
+    pathname.includes('/fonts/') ||
+    pathname.includes('/.well-known/')
+  ) {
     return;
   }
 
